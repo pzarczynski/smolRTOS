@@ -1,0 +1,16 @@
+[workspace]
+members = ["firmware", "kernel"]
+default-members = ["firmware"]
+resolver = "3"
+
+[profile.dev]
+opt-level = 1
+debug = 2
+panic = "abort"
+
+[profile.release]
+opt-level = 2
+debug = 2
+lto = "thin"
+codegen-units = 1
+panic = "abort"

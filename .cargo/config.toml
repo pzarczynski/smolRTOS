@@ -1,0 +1,17 @@
+[target.thumbv8m.main-none-eabihf]
+runner = "probe-rs run --chip RP235x --protocol swd"
+linker = "flip-link"
+rustflags = [
+    "-C", "target-cpu=cortex-m33",
+    "-C", "link-arg=--nmagic",
+    "-C", "link-arg=-Tlink.x",
+    "-C", "link-arg=-Tdefmt.x",
+]
+
+[env]
+DEFMT_LOG = "debug"
+
+[alias]
+fw-build = "build -p firmware --target thumbv8m.main-none-eabihf"
+fw = "run -p firmware --target thumbv8m.main-none-eabihf"
+ktest = "test -p kernel"

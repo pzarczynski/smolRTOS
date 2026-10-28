@@ -1,0 +1,21 @@
+[package]
+name = "firmware"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+kernel = { path = "../kernel" }
+
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+embedded-hal = "1"
+rp235x-hal = { version = "0.3", features = ["rt", "critical-section-impl"] }
+defmt = "1"
+defmt-rtt = "1"
+panic-probe = { version = "1", features = ["print-defmt"] }
+
+[[bin]]
+name = "firmware"
+path = "src/main.rs"
+test = false
+bench = false

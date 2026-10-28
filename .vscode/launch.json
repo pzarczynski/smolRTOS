@@ -1,0 +1,30 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Pico 2: core 0",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "preLaunchTask": "firmware: build",
+            "cwd": "${workspaceFolder}",
+            "chip": "RP235x",
+            "wireProtocol": "Swd",
+            "speed": 1000,
+            "connectUnderReset": false,
+            "runtimeExecutable": "probe-rs",
+            "runtimeArgs": ["dap-server"],
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": false
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${workspaceFolder}/target/thumbv8m.main-none-eabihf/debug/firmware",
+                    "rttEnabled": true
+                }
+            ],
+            "consoleLogLevel": "Info"
+        }
+    ]
+}

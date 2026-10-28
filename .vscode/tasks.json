@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "firmware: build",
+            "type": "process",
+            "command": "cargo",
+            "args": ["fw-build"],
+            "problemMatcher": ["$rustc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "clear": false,
+                "showReuseMessage": false
+            }
+        }
+    ],
+}
